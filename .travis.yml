@@ -10,7 +10,8 @@ before_script:
   - npm install
   - echo -e "SLATE_PASSWORD=${APP_PASSWORD}\nSLATE_THEME_ID=${SP}${APP_THEME_ID}\nSLATE_STORE=${APP_STORE}\nSLATE_USER_EMAIL=viktor@bystrov.agency\n" > ./.env
 script:
-  - yarn deploy
+  - yarn lint
+after_script: yarn deploy
 notifications:
   email: false
   slack:
