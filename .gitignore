@@ -9,6 +9,8 @@
 ###################
 node_modules
 dist
+package-lock.json
+yarn.lock
 upload
 deploy.log
 config/shopify.yml
