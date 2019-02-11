@@ -8,9 +8,7 @@ cache:
 install:
   - npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
   - npm install -g stylelint
-  - npm install -g stylelint-config-shopify
   - npm install
-  - ls -l /home/travis/build/bystrovagency/starter-theme/node_modules/@shopify/slate-tools/node_modules/.bin/
   - echo -e "SLATE_PASSWORD=${APP_PASSWORD}\nSLATE_THEME_ID=${SP}${APP_THEME_ID}\nSLATE_STORE=${APP_STORE}\nSLATE_USER_EMAIL=viktor@bystrov.agency\n" > ./.env
 script:
   - yarn lint --styles --verbose
