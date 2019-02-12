@@ -15,7 +15,7 @@ before_script:
   - ln -s $(pwd)/node_modules/.bin/eslint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
   - ln -s $(pwd)/node_modules/.bin/theme-lint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
 script:
-  - yarn lint --styles --verbose
+  - yarn lint --styles
 after_success: yarn deploy
 notifications:
   email: false
