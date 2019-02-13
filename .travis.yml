@@ -18,11 +18,11 @@ jobs:
     - stage: prepare
       before_install: npm install -g @shopify/slate-tools --silent
       install: npm install -g stylelint --silent
-      script: npm install
+      script: npm install --silent
     - stage: test
-      before_script: echo -e "SLATE_PASSWORD=${APP_PASSWORD}\nSLATE_THEME_ID=${SP}${APP_THEME_ID}\nSLATE_STORE=${APP_STORE}\nSLATE_USER_EMAIL=viktor@bystrov.agency\n" > ./.env
       script: yarn lint --styles
     - stage: deploy
+      before_script: echo -e "SLATE_PASSWORD=${APP_PASSWORD}\nSLATE_THEME_ID=${SP}${APP_THEME_ID}\nSLATE_STORE=${APP_STORE}\nSLATE_USER_EMAIL=viktor@bystrov.agency\n" > ./.env
       script: yarn deploy
 
 notifications:
