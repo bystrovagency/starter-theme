@@ -16,6 +16,7 @@ stages:
 jobs:
   include:
     - stage: prepare
+      before_install: echo -e "SLATE_PASSWORD=${APP_PASSWORD}\nSLATE_THEME_ID=${SP}${APP_THEME_ID}\nSLATE_STORE=${APP_STORE}\nSLATE_USER_EMAIL=viktor@bystrov.agency\n" > ./.env
       before_script: npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
       script: npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
       after_script: npm install -g stylelint
