@@ -1,25 +1,23 @@
 language: node_js
 node_js:
   - "8.11.2"
+
 cache:
   yarn: true
   directories:
   - node_modules
+
 stages:
+  - prepare
   - test
   - name: deploy
     if: branch = master
 
-install:
-  - npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
-  - npm install -g stylelint
-  - npm install
-  - echo -e "SLATE_PASSWORD=${APP_PASSWORD}\nSLATE_THEME_ID=${SP}${APP_THEME_ID}\nSLATE_STORE=${APP_STORE}\nSLATE_USER_EMAIL=viktor@bystrov.agency\n" > ./.env
-before_script:
-  - ln -s $(pwd)/node_modules/.bin/stylelint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
-
 jobs:
   include:
+    - script: npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
+    - script: npm install -g stylelint
+    - script: npm install
     - stage: test
       script: yarn lint --styles
     - stage: deploy
