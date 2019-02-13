@@ -15,8 +15,10 @@ stages:
 
 jobs:
   include:
-    - script: npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
-    - script: npm install -g stylelint
+    - stage: prepare
+      before_script: npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
+      script: npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
+      after_script: npm install -g stylelint
     - script: npm install
     - stage: test
       script: yarn lint --styles
