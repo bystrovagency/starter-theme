@@ -5,6 +5,11 @@ cache:
   yarn: true
   directories:
   - node_modules
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
 install:
   - npm install -g @shopify/slate-tools --unsafe-perm=true --allow-root
   - npm install -g stylelint
@@ -14,13 +19,14 @@ before_script:
   - ln -s $(pwd)/node_modules/.bin/stylelint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
   - ln -s $(pwd)/node_modules/.bin/eslint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
   - ln -s $(pwd)/node_modules/.bin/theme-lint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
-script:
-  - yarn lint --styles
-deploy:
-  provider: script
-  script: bash -c 'yarn deploy'
-  on:
-    branch: master
+
+jobs:
+  include:
+    - stage: test
+      script: yarn lint --styles
+    - stage: deploy
+      script: yarn deploy
+
 notifications:
   email: false
   slack:
