@@ -18,7 +18,7 @@ script:
   - yarn lint --styles
 deploy:
   provider: script
-  script: yarn deploy
+  script: bash -c 'yarn deploy'
   on:
     branch: master
 notifications:
