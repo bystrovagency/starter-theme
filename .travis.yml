@@ -16,7 +16,11 @@ before_script:
   - ln -s $(pwd)/node_modules/.bin/theme-lint $(pwd)/node_modules/@shopify/slate-tools/node_modules/.bin
 script:
   - yarn lint --styles
-after_success: yarn deploy
+deploy:
+  provider: script
+  script: yarn deploy
+  on:
+    branch: master
 notifications:
   email: false
   slack:
