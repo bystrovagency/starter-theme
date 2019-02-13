@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Shopify/starter-theme.svg?branch=master)](https://travis-ci.org/Shopify/starter-theme)
+[![Build Status](https://travis-ci.com/bystrovagency/starter-theme.svg?branch=master)](https://travis-ci.com/bystrovagency/starter-theme)
 
 # Starter Theme
 
