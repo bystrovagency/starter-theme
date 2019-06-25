@@ -17,6 +17,8 @@ config/shopify.yml
 npm-debug.log
 .env
 .env.*
+input/
+testing/
 
 
 # Compiled source #
@@ -67,3 +69,9 @@ _site
 secrets.json
 .jekyll-metadata
 .ruby-version
+*/**/backstop_data/
+*/**/backstop.json
+*/**/bs-config.js
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
